@@ -1,72 +1,35 @@
-// console.log('main.js');
 
-$('#sidebar').affix({
-      offset: {
-        top: 245
-      }
-});
+$(function () { // wait for document ready
 
-var $body   = $(document.body);
-var navHeight = $('.navbar').outerHeight(true) + 10;
-
-$body.scrollspy({
-	target: '#leftCol',
-	offset: navHeight
-});
-
-var controller = new ScrollMagic.Controller({
-  globalSceneOptions: {
-    duration: $('section').height(),
-    triggerHook: .025,
-    reverse: true
-  }
-});
-
-var scene1 = new ScrollMagic.Scene({ triggerElement: '#intro' })
-								.setClassToggle('#intro-anchor', 'active')
-								.addTo(controller);
-var scene2 = new ScrollMagic.Scene({ triggerElement: '#section-1' })
-								.setClassToggle('#anchor1', 'active')
-								.addTo(controller);
-var scene3 = new ScrollMagic.Scene({ triggerElement: '#section-2' })
-								.setClassToggle('#anchor2', 'active')
-								.addTo(controller);
-var scene4 = new ScrollMagic.Scene({ triggerElement: '#section-3' })
-								.setClassToggle('#anchor3', 'active')
-								.addTo(controller);
-
-// Change behaviour of controller
-// to animate scroll instead of jump
-controller.scrollTo(function(target) {
-
-  TweenMax.to(window, 0.5, {
-    scrollTo : {
-      y : target,
-      autoKill : true // Allow scroll position to change outside itself
-    },
-    ease : Cubic.easeInOut
-  });
-
-});
+		// init controller
+		var controller = new ScrollMagic.Controller();
+		
+		// build scene
 
 
-//  Bind scroll to anchor links
-$(document).on("click", "a[href^=#]", function(e) {
-  var id = $(this).attr("href");
+		var scene = new ScrollMagic.Scene({triggerElement: "#pin2"})
+						.setPin("#pin2")
+						.addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
+						.addTo(controller);
 
-  if($(id).length > 0) {
-    e.preventDefault();
 
-    // trigger scroll
-    controller.scrollTo(id);
-
-    // If supported by the browser we can also update the URL
-    if (window.history && window.history.pushState) {
-      history.pushState("", document.title, id);
-    }
-  }
-
-});
+		new ScrollMagic.Scene({triggerElement: "#sec1", duration: 500})
+					.setClassToggle("#high1", "active") // add class toggle
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#sec2", duration: 500})
+					.setClassToggle("#high2", "active") // add class toggle
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#sec3", duration: 500})
+					.setClassToggle("#high3", "active") // add class toggle
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#sec4", duration: 500})
+					.setClassToggle("#high4", "active") // add class toggle
+					.addIndicators() // add indicators (requires plugin)
+					.addTo(controller);
+	});
 
 // 	//init animation for .5 seconds 
 // 	var tween = TweenMax.to('#animation', 0.5, {

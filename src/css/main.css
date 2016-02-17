@@ -5752,102 +5752,23 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
-#masthead {
-  min-height: 270px;
-  background-color: #000044;
-  color: #aaaacc; }
-
-#masthead h1 {
-  font-size: 55px;
-  line-height: 1; }
-
-#masthead .well {
-  margin-top: 13%;
-  background-color: #111155;
-  border-color: #000033; }
-
-.icon-bar {
-  background-color: #fff; }
-
-@media screen and (min-width: 768px) {
-  #masthead h1 {
-    font-size: 100px; } }
-
-.navbar-bright {
-  background-color: #111155;
-  color: #fff; }
-
-.navbar-bright a, #masthead a, #masthead .lead {
-  color: #aaaacc; }
-
-.navbar-bright li > a:hover {
-  background-color: #000033; }
-
-.affix-top, .affix {
-  position: static; }
-
-#sidebar li {
-  border-bottom: 1px solid #eee; }
-
-#sidebar li.active {
-  border-right: 5px solid #eee; }
-
-#mainCol h2 {
-  padding-top: 55px;
-  margin-top: -55px; }
-
-@media (min-width: 992px) {
-  #sidebar.affix-top {
-    position: static;
-    margin-top: 30px;
-    width: 228px; }
-  #sidebar.affix {
-    position: fixed;
-    top: 70px;
-    width: 228px; } }
-
-html,
-body {
-  margin: 0;
-  height: 100%; }
-
-a {
-  color: white;
-  text-decoration: none; }
-
-a:hover {
-  text-decoration: underline; }
-
-a.active {
-  color: #000;
-  text-decoration: underline; }
-
-h1,
-p {
-  margin: 0;
-  padding: 0; }
-
-header {
-  position: fixed;
-  top: 10px;
-  left: 10px; }
+.container {
+  width: 100%; }
 
 section {
-  text-align: center;
-  color: #EFEFEF; }
+  height: 500px; }
 
-.full-screen {
-  height: 100% !important;
-  /* makes panels the entire window height */ }
+#section-1 {
+  background-color: red; }
 
-.blue {
-  background-color: #3883d8; }
+#section-2 {
+  background-color: cyan; }
 
-.red {
-  background-color: #cf3535; }
+#section-3 {
+  background-color: olive; }
 
-.orange {
-  background-color: #ea6300; }
+.active {
+  background-color: #307FB5; }
 
 /* PARTIAL BOOTSTRAP SUPPORT ~34K */
 /*@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
