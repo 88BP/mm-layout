@@ -5752,9 +5752,17 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.body {
+  background-color: #a8216b;
+  color: white; }
+
 .container {
   width: 100%;
-  padding: 0; }
+  padding: 0;
+  z-index: -100; }
+
+.parentRow {
+  z-index: -1000; }
 
 .headerImg {
   background-image: url("../img/millenialsheader.jpg") 100%; }
@@ -5763,7 +5771,8 @@ button.close {
   height: 300px; }
 
 #rightCol {
-  padding: 0; }
+  padding: 0;
+  z-index: 10; }
 
 #midCol {
   padding-top: 300px; }
@@ -5773,20 +5782,26 @@ button.close {
 
 section {
   height: 1000px;
-  text-align: center; }
+  text-align: center;
+  margin: 15px;
+  border: 3px white solid;
+  border-radius: 5px; }
 
-#section-1 {
-  background-color: blue; }
+/*#section-1{
+	background-color: blue;
+}
 
-#section-2 {
-  background-color: cyan; }
+#section-2{
+	background-color: cyan;
+}
 
-#section-3 {
-  background-color: olive; }
+#section-3{
+	background-color: olive;
+}
 
-#section-4 {
-  background-color: grey; }
-
+#section-4{
+	background-color: grey;
+}*/
 .move {
   padding: 30px;
   border: 1px black solid;
@@ -5811,7 +5826,7 @@ section {
 
 .col-offset-200 {
   padding-left: 300px;
-  z-index: -100; }
+  z-index: -90; }
 
 /* PARTIAL BOOTSTRAP SUPPORT ~34K */
 /*@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";

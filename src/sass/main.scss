@@ -2,9 +2,23 @@
 /* FULL BOOTSTRAP SUPPORT ~147K */
 @import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+.body{
+	background-color: #a8216b;
+	color: white;
+}
 .container{
 	width: 100%; 
 	padding: 0;
+	z-index: -100;
+}
+
+#backgroundColor{
+	
+}
+
+.parentRow{
+	z-index: -1000;
+
 }
 
 .headerImg{
@@ -17,6 +31,7 @@
 
 #rightCol{
 	padding: 0;
+	z-index: 10;
 }
 
 #midCol{
@@ -31,8 +46,11 @@
 section{
 	height: 1000px;
 	text-align: center;
+	margin: 15px;
+	border: 3px white solid;
+	border-radius: 5px;
 }
-#section-1{
+/*#section-1{
 	background-color: blue;
 }
 
@@ -46,7 +64,7 @@ section{
 
 #section-4{
 	background-color: grey;
-}
+}*/
 
 .move{
 
@@ -80,7 +98,7 @@ section{
 
 	.col-offset-200{
 		padding-left: 300px;
-		z-index: -100;
+		z-index: -90;
 	}
 
 
