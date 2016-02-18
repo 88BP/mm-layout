@@ -5768,12 +5768,15 @@ button.close {
 #midCol {
   padding-top: 300px; }
 
+.infoSpacer {
+  height: 200px; }
+
 section {
   height: 1000px;
   text-align: center; }
 
 #section-1 {
-  background-color: red; }
+  background-color: blue; }
 
 #section-2 {
   background-color: cyan; }
@@ -5785,16 +5788,18 @@ section {
   background-color: grey; }
 
 .move {
-  position: fixed;
-  top: 30%;
-  left: 25px;
   padding: 30px;
   border: 1px black solid;
-  border-radius: 5px; }
+  border-radius: 5px;
+  margin-left: 50px; }
 
 .menu {
   list-style-type: none;
   padding: 0; }
+
+#menuPin {
+  top: 250px !important;
+  z-index: 1; }
 
 .active {
   background-color: #307FB5; }
@@ -5805,7 +5810,8 @@ section {
   height: 100%; }
 
 .col-offset-200 {
-  padding-left: 200px; }
+  padding-left: 300px;
+  z-index: -100; }
 
 /* PARTIAL BOOTSTRAP SUPPORT ~34K */
 /*@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
