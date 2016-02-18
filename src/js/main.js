@@ -6,11 +6,16 @@ $(function () { // wait for document ready
 		
 		// build scene
 
+		new ScrollMagic.Scene({triggerElement: "#trigger1", duration: 800})
+					.setPin("#pin1")
+					.addIndicators({name: "1 (duration: 800)"})
+					.addTo(controller);
 
-		// var scene = new ScrollMagic.Scene({triggerElement: "#pin2"})
-		// 				.setPin("#pin2")
-		// 				.addIndicators({name: "2 (duration: 0)"}) // add indicators (requires plugin)
-		// 				.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#trigger2", duration: 600})
+					.setPin("#pin2")
+					.addIndicators({name: "1 (duration: 600)"})
+					.addTo(controller);
+
 
 
 		new ScrollMagic.Scene({triggerElement: "#sec1", duration: 500})
@@ -54,24 +59,4 @@ $(function () { // wait for document ready
 
 // });
 
-// init controller
-	// var controller = new ScrollMagic.Controller({globalSceneOptions: {duration: 100}});
-
-	// // build scenes
-	// new ScrollMagic.Scene({triggerElement: "#sec1"})
-	// 				.setClassToggle("#high1", "active") // add class toggle
-	// 				.addIndicators() // add indicators (requires plugin)
-	// 				.addTo(controller);
-	// new ScrollMagic.Scene({triggerElement: "#sec2"})
-	// 				.setClassToggle("#high2", "active") // add class toggle
-	// 				.addIndicators() // add indicators (requires plugin)
-	// 				.addTo(controller);
-	// new ScrollMagic.Scene({triggerElement: "#sec3"})
-	// 				.setClassToggle("#high3", "active") // add class toggle
-	// 				.addIndicators() // add indicators (requires plugin)
-	// 				.addTo(controller);
-	// new ScrollMagic.Scene({triggerElement: "#sec4"})
-	// 				.setClassToggle("#high4", "active") // add class toggle
-	// 				.addIndicators() // add indicators (requires plugin)
-	// 				.addTo(controller);
 

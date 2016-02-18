@@ -5756,6 +5756,12 @@ button.close {
   width: 100%;
   padding: 0; }
 
+.headerImg {
+  background-image: url("../img/millenialsheader.jpg") 100%; }
+
+#colTitle {
+  height: 300px; }
+
 #rightCol {
   padding: 0; }
 
@@ -5763,7 +5769,7 @@ button.close {
   padding-top: 300px; }
 
 section {
-  height: 500px;
+  height: 1000px;
   text-align: center; }
 
 #section-1 {
@@ -5781,10 +5787,14 @@ section {
 .move {
   position: fixed;
   top: 30%;
-  left: 50px;
+  left: 25px;
   padding: 30px;
   border: 1px black solid;
   border-radius: 5px; }
+
+.menu {
+  list-style-type: none;
+  padding: 0; }
 
 .active {
   background-color: #307FB5; }
