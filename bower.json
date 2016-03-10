@@ -18,7 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap-sass": "~3.3.6"
+    "bootstrap-sass": "~3.3.6",
+    "chartist": "~0.9.7"
   },
   "overrides": {
     "bootstrap-sass": {

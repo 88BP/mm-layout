@@ -24,6 +24,10 @@ $(function () { // wait for document ready
 			backgroundColor: '#2d9598', 
 			ease: Linear.easeNone
 			});
+
+			var bgTween2b = TweenMax.to ('#section-2', 1, {
+				backgroundColor: '#ea204c',
+			});
 			
 		
 
@@ -40,11 +44,11 @@ $(function () { // wait for document ready
 		
 		// build scene
 
-		new ScrollMagic.Scene({triggerElement: "#titleTrigger", duration: 700})
-					.offset(300)
-					.setPin(".titleImg", {spacerClass:"titleSpacer"})
-					.addIndicators({name: "title trigger"})
-					.addTo(controller);
+		// new ScrollMagic.Scene({triggerElement: "#titleTrigger", duration: 700})
+		// 			.offset(300)
+		// 			.setPin(".titleImg", {spacerClass:"titleSpacer"})
+		// 			.addIndicators({name: "title trigger"})
+		// 			.addTo(controller);
 
 		new ScrollMagic.Scene({triggerElement: "#menuTrigger"})
 					.setPin("#menuPin")
@@ -71,6 +75,11 @@ $(function () { // wait for document ready
 					.addIndicators({name: "4 (duration: 700)"})
 					.addTo(controller);
 
+		new ScrollMagic.Scene({triggerElement: ".ct-chart", duration: 700})
+					.setPin(".pinnedChart", {spacerClass:"chartSpacer"})
+					.addIndicators({name: "chart trigger"})
+					.addTo(controller);
+
 
 		new ScrollMagic.Scene({triggerElement: "#bgTrigger1", duration: 300})
 					.setTween(bgTween1)
@@ -82,7 +91,12 @@ $(function () { // wait for document ready
 					.addIndicators({name: "bgTrigger2 (duration: 100)"})
 					.addTo(controller);
 
-		new ScrollMagic.Scene({triggerElement: "#bgTrigger3", duration: 300})
+		new ScrollMagic.Scene({triggerElement: "#bgTrigger2", duration: 300})
+					.setTween(bgTween2b)
+					.addIndicators({name: "bgTrigger2 section color (duration: 100)"})
+					.addTo(controller);
+
+		var sceneTest = new ScrollMagic.Scene({triggerElement: "#bgTrigger3", duration: 300})
 					.setTween(bgTween3)
 					.addIndicators({name: "bgTrigger3 (duration: 100)"})
 					.addTo(controller);
@@ -110,6 +124,73 @@ $(function () { // wait for document ready
 					.setClassToggle("#high4", "active") // add class toggle
 					.addIndicators() // add indicators (requires plugin)
 					.addTo(controller);
+
+			sceneTest.on('start', function(e){
+				if (e.scrollDirection === "FORWARD"){
+					var chart = new Chartist.Pie('.ct-chart', {
+  series: [10, 20, 50, 20, 5, 50, 15],
+  labels: [1, 2, 3, 4, 5, 6, 7]
+}, {
+  donut: true,
+  showLabel: true
+});
+
+chart.on('draw', function(data) {
+  if(data.type === 'slice') {
+    // Get the total path length in order to use for dash array animation
+    var pathLength = data.element._node.getTotalLength();
+
+    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+    data.element.attr({
+      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+    });
+
+    // Create animation definition while also assigning an ID to the animation for later sync usage
+    var animationDefinition = {
+      'stroke-dashoffset': {
+        id: 'anim' + data.index,
+        dur: 400,
+        from: -pathLength + 'px',
+        to:  '0px',
+        easing: Chartist.Svg.Easing.easeOutQuint,
+        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+        fill: 'freeze'
+      }
+    };
+
+    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+    if(data.index !== 0) {
+      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+    }
+
+    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+    data.element.attr({
+      'stroke-dashoffset': -pathLength + 'px'
+    });
+
+    // We can't use guided mode as the animations need to rely on setting begin manually
+    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+    data.element.animate(animationDefinition, false);
+  }
+});
+
+// // For the sake of the example we update the chart every time it's created with a delay of 8 seconds
+// chart.on('created', function() {
+//   if(window.__anim21278907124) {
+//     clearTimeout(window.__anim21278907124);
+//     window.__anim21278907124 = null;
+//   }
+//   window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+// });
+
+				}
+			});
+
+			sceneTest.on('end', function(e){
+				sceneTest.remove();
+			});
+
+
 	});
 
 
